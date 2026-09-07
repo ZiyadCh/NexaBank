@@ -1,0 +1,7 @@
+
+/**
+ * Transaction
+ */
+public class Transaction {
+
+}
