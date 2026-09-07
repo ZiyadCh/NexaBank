@@ -4,6 +4,15 @@ public class Compte {
   private float solde;
   private boolean active;
   private HashSet<Transaction> transactionHistory;
+  private String ClientId;
+
+  public String getClientId() {
+    return ClientId;
+  }
+
+  public void setClientId(String clientId) {
+    ClientId = clientId;
+  }
 
   public Compte() {
     this.solde = 0;
