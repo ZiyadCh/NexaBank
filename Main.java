@@ -2,6 +2,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+  //clients list
+  public static ArrayList<Client> clients;
+  public static ArrayList<Banker> bankers ;
+  //global scanner
   public static Scanner scanner = new Scanner(System.in);
   public static void main(String[] args) {
     boolean running = false;
@@ -15,7 +19,8 @@ while (!running) {
       System.out.println("└────────────────────────────────┘");
       switch (scanner.nextLine()) {
         case "1":
-        Client.Login();
+          
+        // Client.Login();
           break;
 
 
