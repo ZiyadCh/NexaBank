@@ -4,11 +4,12 @@ abstract class Person {
   protected String email;
   protected String password;
 
-  protected void Login() {
-
+  protected static  void Login() {
+    System.out.println("Entrer votre nom:");
+    System.out.println("Entrer votre prenom:");
   }
 
-  protected void Logout() {
+  protected static  void Logout() {
 
   }
 

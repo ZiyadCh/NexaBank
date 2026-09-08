@@ -17,4 +17,6 @@ public class Client extends Person {
   public void setIdClient(String idClient) {
     this.idClient = idClient;
   }
+
+
 }
