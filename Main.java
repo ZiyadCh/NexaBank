@@ -8,7 +8,7 @@ public class Main {
   public static Scanner scanner = new Scanner(System.in);
 
   static {
-    clients.add(new Client("Jean", "Dupont", "pass123", "jean@nexabank.com", 1));
+    clients.add(new Client("Jean", "Dupont", "pass123", "jean", 1));
     clients.add(new Client("Marie", "Curie", "radium", "marie@nexabank.com", 2));
     clients.add(new Client("Pierre", "Martin", "secret", "pierre@nexabank.com", 3));
     clients.add(new Client("Alice", "Durand", "alicepw", "alice@nexabank.com", 4));
@@ -25,6 +25,7 @@ public class Main {
     System.out.println("└────────────────────────────────┘");
     switch (scanner.nextLine()) {
       case "1":
+
         Person user = Person.Login();
         if (user instanceof Client) {
           ClientUI((Client) user);
@@ -63,6 +64,7 @@ public class Main {
           break;
 
         case "2":
+          banker.listClients();
           break;
 
         case "3":

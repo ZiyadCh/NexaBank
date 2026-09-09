@@ -19,7 +19,7 @@ public class Banker extends Person {
     Main.cid++;
   }
 
-  public static void listClients() {
+  public void listClients() {
     for (Client c : Main.clients) {
       System.out.println("id: " + c.getIdClient());
       System.out.println("nom: " + c.getNom());
