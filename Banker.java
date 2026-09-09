@@ -28,13 +28,17 @@ public class Banker extends Person {
   }
 
   public void listClients() {
+    System.out.println("\033[H\033[2J");
+    String sep = "+----------+--------------+--------------+--------------------+---------+";
+    String header = String.format("| %-8s | %-12s | %-12s | %-18s | %-7s |", "ID", "NOM", "PRENOM", "EMAIL", "SOLDE");
+    System.out.println(sep);
+    System.out.println(header);
+    System.out.println(sep);
     for (Client c : Main.clients) {
-      System.out.println("id: " + c.getIdClient());
-      System.out.println("nom: " + c.getNom());
-      System.out.println("prenom: " + c.getPrenom());
-      System.out.println("email: " + c.getEmail());
-      System.out.println("solde: " + c.getSolde());
+      System.out.printf("| %-8s | %-12s | %-12s | %-18s | %-7.2f |%n",
+        c.getIdClient(), c.getNom(), c.getPrenom(), c.getEmail(), c.getSolde());
     }
+    System.out.println(sep);
   }
 
 }
