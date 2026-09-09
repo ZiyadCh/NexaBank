@@ -1,8 +1,8 @@
 public class Banker extends Person {
   private String idBanker;
 
-  public Banker(String nom, String prenom, String password, String email, int cid) {
-    this.idBanker = "B" + cid;
+  public Banker(String nom, String prenom, String password, String email, int bid) {
+    this.idBanker = "B" + bid;
     this.nom = nom;
     this.prenom = prenom;
     this.password = password;
@@ -13,9 +13,20 @@ public class Banker extends Person {
     return idBanker;
   }
 
-  public static void addClient(String nom, String prenom, String email, String password, int cid) {
-    Client client = new Client(nom, prenom, password, email, cid);
+  public static void addClient(String nom, String prenom, String email, String password) {
+    Client client = new Client(nom, prenom, password, email, Main.cid);
     Main.clients.add(client);
+    Main.cid++;
+  }
+
+  public static void listClients() {
+    for (Client c : Main.clients) {
+      System.out.println("id: " + c.getIdClient());
+      System.out.println("nom: " + c.getNom());
+      System.out.println("prenom: " + c.getPrenom());
+      System.out.println("email: " + c.getEmail());
+      System.out.println("solde: " + c.getSolde());
+    }
   }
 
 }

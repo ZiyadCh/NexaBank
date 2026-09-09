@@ -2,6 +2,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class Main {
+  public static int cid = 5;
   public static HashSet<Client> clients = new HashSet<>();
   public static HashSet<Banker> bankers = new HashSet<>();
   public static Scanner scanner = new Scanner(System.in);
