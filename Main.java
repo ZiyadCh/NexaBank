@@ -5,6 +5,7 @@ public class Main {
   public static int cid = 6;
   public static HashSet<Client> clients = new HashSet<>();
   public static HashSet<Banker> bankers = new HashSet<>();
+  public static HashSet<Compte> comptes = new HashSet<>();
   public static Scanner scanner = new Scanner(System.in);
 
   static {
@@ -23,6 +24,7 @@ public class Main {
     System.out.println("│1❯ Log In                       │");
     System.out.println("│2❯ quitter                      │");
     System.out.println("└────────────────────────────────┘");
+
     switch (scanner.nextLine()) {
       case "1":
 
@@ -57,7 +59,9 @@ public class Main {
       System.out.println("│1❯ Creer un compte              │");
       System.out.println("│2❯ Bloquer un compte            │");
       System.out.println("│3❯ Modifier un compte           │");
-      System.out.println("│4❯ quitter                      │");
+      System.out.println("│4❯ Consulter releve d'un compte │");
+      System.out.println("│5❯ Deconnecter                  │");
+      System.out.println("│6❯ Quitter                      │");
       System.out.println("└────────────────────────────────┘");
       switch (scanner.nextLine()) {
         case "1":
@@ -71,8 +75,8 @@ public class Main {
         case "3":
           break;
 
-        case "4":
-          System.out.println("program closed");
+        case "6":
+          System.out.println("Au revoir");
           running = false;
           break;
 

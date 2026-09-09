@@ -5,6 +5,15 @@ public class Compte {
   private boolean active;
   private HashSet<Transaction> transactionHistory;
   private String ClientId;
+  private String AccountId;
+
+  public String getAccountId() {
+    return AccountId;
+  }
+
+  public void setAccountId(String accountId) {
+    AccountId = accountId;
+  }
 
   public String getClientId() {
     return ClientId;
