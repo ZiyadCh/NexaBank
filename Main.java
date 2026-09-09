@@ -25,7 +25,6 @@ public class Main {
     switch (scanner.nextLine()) {
       case "1":
         Person role = Person.Login();
-        System.out.println(role.);
         if (role instanceof Client) {
           ClientUI();
         } else if (role instanceof Banker) {
@@ -53,7 +52,7 @@ public class Main {
 
   // if the user is client
   public static void ClientUI() {
-    boolean running = false;
+    boolean running = true;
     while (running) {
       System.out.println("┌────────────────────────────────┐");
       System.out.println("│     select une transaction:    │");
