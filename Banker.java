@@ -13,7 +13,15 @@ public class Banker extends Person {
     return idBanker;
   }
 
-  public static void addClient(String nom, String prenom, String email, String password) {
+  public static void addClient() {
+    System.out.println("Nom:");
+    String nom = Main.scanner.nextLine();
+    System.out.println("Prenom:");
+    String prenom = Main.scanner.nextLine();
+    System.out.println("Email:");
+    String email = Main.scanner.nextLine();
+    System.out.println("Mod de passe:");
+    String password = Main.scanner.nextLine();
     Client client = new Client(nom, prenom, password, email, Main.cid);
     Main.clients.add(client);
     Main.cid++;
