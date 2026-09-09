@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Main {
   public static int cid = 6;
+  public static int aid = 1;
   public static HashSet<Client> clients = new HashSet<>();
   public static HashSet<Banker> bankers = new HashSet<>();
   public static HashSet<Compte> comptes = new HashSet<>();
@@ -65,7 +66,7 @@ public class Main {
       System.out.println("└────────────────────────────────┘");
       switch (scanner.nextLine()) {
         case "1":
-          banker.addClient();
+          banker.addCompte();
           break;
 
         case "2":

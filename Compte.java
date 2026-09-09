@@ -23,9 +23,12 @@ public class Compte {
     ClientId = clientId;
   }
 
-  public Compte() {
+  public Compte(String clientId, String accountId) {
     this.solde = 0;
     this.active = true;
+    this.ClientId = clientId;
+    this.AccountId = accountId;
+    this.transactionHistory = new HashSet<>();
   }
 
   public float getSolde() {
