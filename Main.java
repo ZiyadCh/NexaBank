@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -13,34 +12,76 @@ public class Main {
     clients.add(new Client("Pierre", "Martin", "secret", "pierre@nexabank.com", 3));
     clients.add(new Client("Alice", "Durand", "alicepw", "alice@nexabank.com", 4));
     clients.add(new Client("Lucas", "Bernard", "lucas88", "lucas@nexabank.com", 5));
+    bankers.add(new Banker("Sophie", "Tremblay", "bankpass", "sophie@nexabank.com", 1));
   }
 
   public static void main(String[] args) {
-    boolean running = false;
+    System.out.println("┌────────────────────────────────┐");
+    System.out.println("│       select une action:       │");
+    System.out.println("├────────────────────────────────┤");
+    System.out.println("│1❯ Log In                       │");
+    System.out.println("│2❯ quitter                      │");
+    System.out.println("└────────────────────────────────┘");
+    switch (scanner.nextLine()) {
+      case "1":
+        Person user = Person.Login();
+        if (user instanceof Client) {
+          ClientUI((Client) user);
+        } else if (user instanceof Banker) {
+          BankerUI((Banker) user);
+        } else
+          System.out.println("incorrect");
+        break;
 
-    while (!running) {
+      case "2":
+        System.out.println("program closed");
+        return;
+
+      default:
+        System.out.println("Entrer un nombre correspondant!");
+        break;
+    }
+
+    scanner.close();
+  }
+
+  ////////////////////////////////////////// usergestionaire //////////////////////////////////////////
+  private static void BankerUI(Banker banker) {
+    boolean running = true;
+    while (running) {
       System.out.println("┌────────────────────────────────┐");
-      System.out.println("│       select une action:       │");
+      System.out.println("│     select une operation       │");
       System.out.println("├────────────────────────────────┤");
-      System.out.println("│1❯ Log In                       │");
-      System.out.println("│2❯ quitter                      │");
+      System.out.println("│1❯ Creer un compte              │");
+      System.out.println("│2❯ Bloquer un compte            │");
+      System.out.println("│3❯ Modifier un compte           │");
+      System.out.println("│4❯ quitter                      │");
       System.out.println("└────────────────────────────────┘");
       switch (scanner.nextLine()) {
         case "1":
-          Person.Login();
           break;
 
         case "2":
+          break;
+
+        case "3":
+          break;
+
+        case "4":
           System.out.println("program closed");
-          return;
+          running = false;
+          break;
 
         default:
           System.out.println("Entrer un nombre correspondant!");
           break;
       }
     }
+  }
 
-    // menu
+  ////////////////////////////////////////// userclient //////////////////////////////////////////
+  public static void ClientUI(Client client) {
+    boolean running = true;
     while (running) {
       System.out.println("┌────────────────────────────────┐");
       System.out.println("│     select une transaction:    │");
@@ -70,6 +111,5 @@ public class Main {
           break;
       }
     }
-    scanner.close();
   }
 }
