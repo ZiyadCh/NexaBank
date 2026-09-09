@@ -13,7 +13,7 @@ public class Banker extends Person {
     return idBanker;
   }
 
-  public static void addClient() {
+  public void addClient() {
     System.out.println("Nom:");
     String nom = Main.scanner.nextLine();
     System.out.println("Prenom:");
