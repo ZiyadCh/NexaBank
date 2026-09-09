@@ -24,11 +24,11 @@ public class Main {
     System.out.println("└────────────────────────────────┘");
     switch (scanner.nextLine()) {
       case "1":
-        Person role = Person.Login();
-        if (role instanceof Client) {
-          ClientUI();
-        } else if (role instanceof Banker) {
-          BankerUI();
+        Person user = Person.Login();
+        if (user instanceof Client) {
+          ClientUI((Client) user);
+        } else if (user instanceof Banker) {
+          BankerUI((Banker) user);
         } else
           System.out.println("incorrect");
         break;
@@ -45,13 +45,42 @@ public class Main {
     scanner.close();
   }
 
-  private static void BankerUI() {
-    // TODO
-    throw new UnsupportedOperationException("Unimplemented method 'BankerUI'");
+  ////////////////////////////////////////// usergestionaire //////////////////////////////////////////
+  private static void BankerUI(Banker banker) {
+    boolean running = true;
+    while (running) {
+      System.out.println("┌────────────────────────────────┐");
+      System.out.println("│     select une operation       │");
+      System.out.println("├────────────────────────────────┤");
+      System.out.println("│1❯ Creer un compte              │");
+      System.out.println("│2❯ Bloquer un compte            │");
+      System.out.println("│3❯ Modifier un compte           │");
+      System.out.println("│4❯ quitter                      │");
+      System.out.println("└────────────────────────────────┘");
+      switch (scanner.nextLine()) {
+        case "1":
+          break;
+
+        case "2":
+          break;
+
+        case "3":
+          break;
+
+        case "4":
+          System.out.println("program closed");
+          running = false;
+          break;
+
+        default:
+          System.out.println("Entrer un nombre correspondant!");
+          break;
+      }
+    }
   }
 
-  // if the user is client
-  public static void ClientUI() {
+  ////////////////////////////////////////// userclient //////////////////////////////////////////
+  public static void ClientUI(Client client) {
     boolean running = true;
     while (running) {
       System.out.println("┌────────────────────────────────┐");
