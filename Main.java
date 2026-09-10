@@ -65,8 +65,7 @@ public class Main {
       System.out.println("│2❯ Bloquer un compte            │");
       System.out.println("│3❯ Modifier un compte           │");
       System.out.println("│4❯ Consulter releve d'un compte │");
-      System.out.println("│5❯ Deconnecter                  │");
-      System.out.println("│6❯ Quitter                      │");
+      System.out.println("│5❯ Quitter                      │");
       System.out.println("└────────────────────────────────┘");
       switch (scanner.nextLine()) {
         case "1":
@@ -80,7 +79,7 @@ public class Main {
         case "3":
           break;
 
-        case "6":
+        case "5":
           System.out.println("Au revoir");
           running = false;
           break;

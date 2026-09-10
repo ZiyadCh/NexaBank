@@ -8,6 +8,14 @@ public class Compte {
   private String ClientId;
   private String AccountId;
 
+  public Compte(String clientId, String accountId) {
+    this.solde = 0;
+    this.active = true;
+    this.ClientId = clientId;
+    this.AccountId = accountId;
+    this.transactionHistory = new HashSet<>();
+  }
+
   public String getAccountId() {
     return AccountId;
   }
@@ -22,14 +30,6 @@ public class Compte {
 
   public void setClientId(String clientId) {
     ClientId = clientId;
-  }
-
-  public Compte(String clientId, String accountId) {
-    this.solde = 0;
-    this.active = true;
-    this.ClientId = clientId;
-    this.AccountId = accountId;
-    this.transactionHistory = new HashSet<>();
   }
 
   public float getSolde() {
@@ -89,5 +89,11 @@ public class Compte {
     } finally {
       Main.scanner.nextLine();
     }
+  }
+
+  public void pay() {
+    System.out.println("Entrer nombre du compte:");
+    Main.scanner.nextLine();
+    System.out.println("Entrer Montant:");
   }
 }
