@@ -18,4 +18,12 @@ public class Client extends Person {
     this.idClient = idClient;
   }
 
+  public void listComptes() {
+    for (Compte compte : Main.comptes) {
+      if (compte.getClientId().equals(this.idClient)) {
+        System.out.println(compte);
+      }
+    }
+  }
+
 }
