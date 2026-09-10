@@ -16,9 +16,9 @@ public class Main {
     clients.add(new Client("Alice", "Durand", "alicepw", "alice@nexabank.com", 4));
     clients.add(new Client("Lucas", "Bernard", "lucas88", "lucas@nexabank.com", 5));
     bankers.add(new Banker("Sophie", "Tremblay", "bankpass", "sophie", 1));
-    comptes.add(new Compte("1", "1001"));
-    comptes.add(new Compte("1", "1002"));
-    comptes.add(new Compte("1", "1003"));
+    comptes.add(new Compte("C1", "1001"));
+    comptes.add(new Compte("C1", "1002"));
+    comptes.add(new Compte("C2", "1003"));
   }
 
   public static void main(String[] args) {
@@ -105,6 +105,7 @@ public class Main {
       System.out.println("└────────────────────────────────┘");
       switch (scanner.nextLine()) {
         case "1":
+          client.listComptes();
           break;
 
         case "2":

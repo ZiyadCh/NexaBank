@@ -19,9 +19,13 @@ public class Client extends Person {
   }
 
   public void listComptes() {
+    System.out.println("Votre comptes:");
+    System.out.println("───────────────────────────────");
     for (Compte compte : Main.comptes) {
       if (compte.getClientId().equals(this.idClient)) {
-        System.out.println(compte);
+        System.out.println("Compte ID: " + compte.getAccountId());
+        System.out.println("Solde: " + compte.getSolde());
+        System.out.println("───────────────────────────────");
       }
     }
   }
