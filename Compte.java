@@ -61,7 +61,31 @@ public class Compte {
       this.solde += amount;
       System.out.println("Montant deposer avec succes!");
     } catch (InputMismatchException e) {
+      System.err.println("─── ERROR ──────────────────────────");
       System.err.println("enter a number!!!");
+      System.err.println("─────────────────────────────────────");
+    } finally {
+      Main.scanner.nextLine();
+    }
+  }
+
+  public void withdraw() {
+    System.out.println("Entrer Montant:");
+    float amount = 0;
+    try {
+      amount = Main.scanner.nextFloat();
+      if (this.solde < amount) {
+        System.err.println("─── ERROR ──────────────────────────");
+        System.err.println("vous ne posseder pas ce montant!!");
+        System.err.println("─────────────────────────────────────");
+        return;
+      }
+      this.solde -= amount;
+      System.out.println("Montant deposer avec succes!");
+    } catch (InputMismatchException e) {
+      System.err.println("─── ERROR ──────────────────────────");
+      System.err.println("enter a number!!!");
+      System.err.println("─────────────────────────────────────");
     } finally {
       Main.scanner.nextLine();
     }

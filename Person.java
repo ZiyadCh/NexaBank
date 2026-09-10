@@ -25,7 +25,9 @@ public abstract class Person {
       }
     }
     // if not found
+    System.out.println("─── ERROR ──────────────────────────");
     System.out.println("Email ou mot de passe incorrect");
+    System.out.println("─────────────────────────────────────");
     return null;
   }
 

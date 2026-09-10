@@ -37,8 +37,7 @@ public class Main {
           ClientUI((Client) user);
         } else if (user instanceof Banker) {
           BankerUI((Banker) user);
-        } else
-          System.out.println("incorrect");
+        }
         break;
 
       case "2":
@@ -46,7 +45,9 @@ public class Main {
         return;
 
       default:
+        System.out.println("─── ERROR ──────────────────────────");
         System.out.println("Entrer un nombre correspondant!");
+        System.out.println("─────────────────────────────────────");
         break;
     }
 
@@ -85,7 +86,9 @@ public class Main {
           break;
 
         default:
+          System.out.println("─── ERROR ──────────────────────────");
           System.out.println("Entrer un nombre correspondant!");
+          System.out.println("─────────────────────────────────────");
           break;
       }
     }
@@ -95,6 +98,7 @@ public class Main {
   public static void ClientUI(Client client) {
     boolean running = true;
     while (running) {
+      Compte c = client.getCompte();
       System.out.println("┌────────────────────────────────┐");
       System.out.println("│     select une transaction:    │");
       System.out.println("├────────────────────────────────┤");
@@ -105,11 +109,11 @@ public class Main {
       System.out.println("└────────────────────────────────┘");
       switch (scanner.nextLine()) {
         case "1":
-          Compte c = client.getCompte();
           c.deposit();
           break;
 
         case "2":
+          c.withdraw();
           break;
 
         case "3":
@@ -121,7 +125,9 @@ public class Main {
           break;
 
         default:
+          System.out.println("─── ERROR ──────────────────────────");
           System.out.println("Entrer un nombre correspondant!");
+          System.out.println("─────────────────────────────────────");
           break;
       }
     }
