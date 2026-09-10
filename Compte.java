@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.InputMismatchException;
 
 public class Compte {
   private float solde;
@@ -54,9 +55,15 @@ public class Compte {
   //////////////////////////// actual operations
   public void deposit() {
     System.out.println("Entrer Montant:");
-    float amount = Main.scanner.nextFloat();
-    Main.scanner.nextLine();
-    this.solde += amount;
-    System.out.println("Montant deposer avec succes!");
+    float amount = 0;
+    try {
+      amount = Main.scanner.nextFloat();
+      this.solde += amount;
+      System.out.println("Montant deposer avec succes!");
+    } catch (InputMismatchException e) {
+      System.err.println("enter a number!!!");
+    } finally {
+      Main.scanner.nextLine();
+    }
   }
 }
