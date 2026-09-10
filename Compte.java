@@ -58,6 +58,12 @@ public class Compte {
     float amount = 0;
     try {
       amount = Main.scanner.nextFloat();
+      if (amount < 0) {
+        System.err.println("─── ERROR ──────────────────────────");
+        System.err.println("le montant ne peut pas etre negatif!!");
+        System.err.println("─────────────────────────────────────");
+        return;
+      }
       this.solde += amount;
       System.out.println("Montant deposer avec succes!");
     } catch (InputMismatchException e) {
@@ -93,7 +99,27 @@ public class Compte {
 
   public void pay() {
     System.out.println("Entrer nombre du compte:");
-    Main.scanner.nextLine();
+    String cid = Main.scanner.nextLine();
     System.out.println("Entrer Montant:");
+    float amount = Main.scanner.nextFloat();
+    Main.scanner.nextLine();
+
+    if (this.solde < amount) {
+      System.err.println("─── ERROR ──────────────────────────");
+      System.err.println("vous ne posseder pas ce montant!!");
+      System.err.println("─────────────────────────────────────");
+      return;
+    }
+
+    for (Compte compte : Main.comptes) {
+      float s = compte.getSolde();
+      if (compte.getAccountId().equals(cid)) {
+        compte.setSolde(s += amount);
+        this.solde -= amount;
+        return;
+      }
+    }
+    System.out.println("compte pas trouve");
+
   }
 }

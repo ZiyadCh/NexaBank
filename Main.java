@@ -116,6 +116,7 @@ public class Main {
           break;
 
         case "3":
+          c.pay();
           break;
 
         case "4":
