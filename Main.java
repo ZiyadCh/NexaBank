@@ -106,6 +106,7 @@ public class Main {
       switch (scanner.nextLine()) {
         case "1":
           Compte c = client.getCompte();
+          c.deposit();
           break;
 
         case "2":

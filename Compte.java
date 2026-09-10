@@ -51,4 +51,12 @@ public class Compte {
     return transactionHistory;
   }
 
+  //////////////////////////// actual operations
+  public void deposit() {
+    System.out.println("Entrer Montant:");
+    float amount = Main.scanner.nextFloat();
+    Main.scanner.nextLine();
+    this.solde += amount;
+    System.out.println("Montant deposer avec succes!");
+  }
 }
