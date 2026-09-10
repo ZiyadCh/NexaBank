@@ -105,7 +105,7 @@ public class Main {
       System.out.println("└────────────────────────────────┘");
       switch (scanner.nextLine()) {
         case "1":
-          client.listComptes();
+          Compte c = client.getCompte();
           break;
 
         case "2":

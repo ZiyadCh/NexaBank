@@ -1,3 +1,4 @@
+import java.lang.management.ManagementFactory;
 
 public class Client extends Person {
   private String idClient;
@@ -18,7 +19,7 @@ public class Client extends Person {
     this.idClient = idClient;
   }
 
-  public void listComptes() {
+  public Compte getCompte() {
     System.out.println("Votre comptes:");
     System.out.println("───────────────────────────────");
     for (Compte compte : Main.comptes) {
@@ -28,6 +29,17 @@ public class Client extends Person {
         System.out.println("───────────────────────────────");
       }
     }
+    System.out.println("Entrer nombre do compte desire");
+    String id = Main.scanner.nextLine();
+
+    for (Compte compte : Main.comptes) {
+      if (compte.getAccountId().equals(id)) {
+        return compte;
+      }
+    }
+    System.out.println("Compte non trouvee!");
+
+    return null;
   }
 
 }
