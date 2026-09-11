@@ -44,6 +44,9 @@ public class CompteService {
   }
 
   public static boolean deposit(Compte compte, float amount) {
+    if (!compte.isActive()) {
+      return false;
+    }
     if (amount < 0) {
       return false;
     }
@@ -52,6 +55,9 @@ public class CompteService {
   }
 
   public static boolean withdraw(Compte compte, float amount) {
+    if (!compte.isActive()) {
+      return false;
+    }
     if (compte.getSolde() < amount) {
       return false;
     }
@@ -60,11 +66,17 @@ public class CompteService {
   }
 
   public static boolean transfer(Compte source, String targetId, float amount) {
+    if (!source.isActive()) {
+      return false;
+    }
     if (source.getSolde() < amount) {
       return false;
     }
     Compte target = findById(targetId);
     if (target == null) {
+      return false;
+    }
+    if (!target.isActive()) {
       return false;
     }
     source.setSolde(source.getSolde() - amount);
