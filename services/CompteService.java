@@ -84,13 +84,13 @@ public class CompteService {
     return true;
   }
 
-  public static boolean ban(String accountId) {
+  public static Compte ban(String accountId) {
     Compte compte = findById(accountId);
     if (compte == null) {
-      return false;
+      return null;
     }
-    compte.setActive(false);
-    return true;
+    compte.setActive(!compte.isActive());
+    return compte;
   }
 
 }

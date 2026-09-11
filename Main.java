@@ -101,10 +101,15 @@ public class Main {
     System.out.println("Numero de compte pour cloturer:");
     String accountId = scanner.nextLine();
 
-    if (CompteService.ban(accountId)) {
-      System.out.println("Compte " + accountId + " bloque.");
-    } else {
+    Compte compte = CompteService.ban(accountId);
+    if (compte == null) {
       System.out.println("Compte non trouve.");
+      return;
+    }
+    if (compte.isActive()) {
+      System.out.println("Compte " + accountId + " debloque.");
+    } else {
+      System.out.println("Compte " + accountId + " bloque.");
     }
   }
 
