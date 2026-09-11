@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import models.Client;
@@ -233,8 +234,15 @@ public class Main {
   }
 
   private static float readAmount() {
-    float amount = scanner.nextFloat();
-    scanner.nextLine();
-    return amount;
+    while (true) {
+      try {
+        float amount = scanner.nextFloat();
+        scanner.nextLine();
+        return amount;
+      } catch (InputMismatchException e) {
+        scanner.nextLine();
+        DisplayUtils.error("Entrer un nombre!!");
+      }
+    }
   }
 }
