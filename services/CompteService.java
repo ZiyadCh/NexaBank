@@ -8,9 +8,9 @@ public class CompteService {
   public static int aid = 1;
 
   static {
-    comptes.add(new Compte("C1", "1001"));
-    comptes.add(new Compte("C1", "1002"));
-    comptes.add(new Compte("C2", "1003"));
+    comptes.add(new Compte("C1", "A1001"));
+    comptes.add(new Compte("C1", "A1002"));
+    comptes.add(new Compte("C2", "A1003"));
   }
 
   public static Compte findById(String accountId) {
@@ -51,6 +51,7 @@ public class CompteService {
       return false;
     }
     compte.setSolde(compte.getSolde() + amount);
+    TransactionService.create("deposit", compte.getAccountId(), null, amount);
     return true;
   }
 
@@ -62,6 +63,7 @@ public class CompteService {
       return false;
     }
     compte.setSolde(compte.getSolde() - amount);
+    TransactionService.create("withdraw", compte.getAccountId(), null, amount);
     return true;
   }
 
@@ -81,6 +83,7 @@ public class CompteService {
     }
     source.setSolde(source.getSolde() - amount);
     target.setSolde(target.getSolde() + amount);
+    TransactionService.create("virement", source.getAccountId(), target.getAccountId(), amount);
     return true;
   }
 
