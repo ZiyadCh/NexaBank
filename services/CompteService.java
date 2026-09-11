@@ -51,7 +51,7 @@ public class CompteService {
       return false;
     }
     compte.setSolde(compte.getSolde() + amount);
-    TransactionService.create("deposit", compte.getAccountId(), null);
+    TransactionService.create("deposit", compte.getAccountId(), null, amount);
     return true;
   }
 
@@ -63,7 +63,7 @@ public class CompteService {
       return false;
     }
     compte.setSolde(compte.getSolde() - amount);
-    TransactionService.create("withdraw", compte.getAccountId(), null);
+    TransactionService.create("withdraw", compte.getAccountId(), null, amount);
     return true;
   }
 
@@ -83,7 +83,7 @@ public class CompteService {
     }
     source.setSolde(source.getSolde() - amount);
     target.setSolde(target.getSolde() + amount);
-    TransactionService.create("virement", source.getAccountId(), target.getAccountId());
+    TransactionService.create("virement", source.getAccountId(), target.getAccountId(), amount);
     return true;
   }
 

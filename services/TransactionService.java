@@ -10,16 +10,14 @@ public class TransactionService {
   public static HashSet<Transaction> transactions = new HashSet<>();
   public static int tid = 1;
 
-  public static boolean create(String type, String compteSource, String compteDestination) {
+  public static boolean create(String type, String compteSource, String compteDestination, float amount) {
     String transactionId = "T" + tid;
 
     LocalDateTime date = LocalDateTime.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
     String newDateTime = date.format(formatter);
-    Transaction transaction = new Transaction(transactionId, type, newDateTime, compteSource, compteDestination);
-    System.out.println(transactionId);
-    System.out.println(compteSource);
-    System.out.println(compteDestination);
+    Transaction transaction = new Transaction(transactionId, type, newDateTime, compteSource, compteDestination,
+        amount);
 
     tid++;
     return true;
