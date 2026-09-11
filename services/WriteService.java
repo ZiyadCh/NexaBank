@@ -1,5 +1,6 @@
 package services;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -10,7 +11,8 @@ public class WriteService {
   public static void writeTransaction(Transaction transaction) {
 
     try {
-      FileWriter fw = new FileWriter("transaction" + transaction.getTransactionId() + ".txt");
+      new File("Transactions").mkdirs();
+      FileWriter fw = new FileWriter("Transactions/transaction" + transaction.getTransactionId() + ".txt");
       fw.write("───────────────────────────────\n");
       fw.write("Date: " + transaction.getDate() + "\n");
       fw.write("Type: " + transaction.getType() + "\n");
