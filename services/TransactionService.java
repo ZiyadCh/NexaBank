@@ -5,10 +5,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import models.Transaction;
+import services.WriteService;
 
 public class TransactionService {
   public static HashSet<Transaction> transactions = new HashSet<>();
-  public static int tid = 5;
+  public static int tid = 1;
 
   static {
     transactions.add(new Transaction("T1", "deposit", "01/01/2026 10:00", "A1001", null, 500));
@@ -28,6 +29,8 @@ public class TransactionService {
         amount);
     transactions.add(transaction);
     tid++;
+    ///
+    WriteService.writeTransaction(transaction);
     return true;
   }
 }
