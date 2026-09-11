@@ -5,7 +5,6 @@ import models.Banker;
 import models.Compte;
 import models.Person;
 import services.AuthService;
-import services.ClientService;
 import services.CompteService;
 
 public class Main {
@@ -59,7 +58,6 @@ public class Main {
     return user;
   }
 
-  ////////////////////////////////////////// usergestionaire //////////////////////////////////////////
   private static void BankerUI(Banker banker) {
     boolean running = true;
     while (running) {
@@ -78,7 +76,7 @@ public class Main {
           break;
 
         case "2":
-          listClientsUI();
+          banUserUI();
           break;
 
         case "3":
@@ -98,27 +96,42 @@ public class Main {
     }
   }
 
+  private static void banUserUI() {
+    listComptesUI();
+    System.out.println("Numero de compte pour cloturer:");
+    String accountId = scanner.nextLine();
+
+    if (CompteService.ban(accountId)) {
+      System.out.println("Compte " + accountId + " bloque.");
+    } else {
+      System.out.println("Compte non trouve.");
+    }
+  }
+
   private static void createAccountUI() {
     System.out.println("ID du client:");
     String clientId = scanner.nextLine();
 
-    if (ClientService.findById(clientId) == null) {
+    boolean created = CompteService.create(clientId);
+    if (!created) {
       System.out.println("Client non trouve.");
       return;
     }
-
-    String accountId = "A" + CompteService.aid;
-    CompteService.create(clientId);
-    System.out.println("Compte " + accountId + " cree pour le client " + clientId);
+    System.out.println("Compte cree pour le client " + clientId);
   }
 
-  private static void listClientsUI() {
-    for (Client c : ClientService.clients) {
-      System.out.println(c.getIdClient() + " | " + c.getNom() + " | " + c.getPrenom() + " | " + c.getEmail());
+  private static void listComptesUI() {
+    System.out.println("Liste des comptes:");
+    System.out.println("───────────────────────────────");
+    for (Compte compte : CompteService.comptes) {
+      System.out.println("Compte ID: " + compte.getAccountId());
+      System.out.println("Client ID: " + compte.getClientId());
+      System.out.println("Solde: " + compte.getSolde());
+      System.out.println("Active:" + compte.isActive());
+      System.out.println("───────────────────────────────");
     }
   }
 
-  ////////////////////////////////////////// userclient //////////////////////////////////////////
   public static void ClientUI(Client client) {
     boolean running = true;
     while (running) {

@@ -33,6 +33,9 @@ public class CompteService {
   }
 
   public static boolean create(String clientId) {
+    if (ClientService.findById(clientId) == null) {
+      return false;
+    }
     String accountId = "A" + aid;
     Compte compte = new Compte(clientId, accountId);
     comptes.add(compte);
@@ -69,9 +72,13 @@ public class CompteService {
     return true;
   }
 
-  public void ban(Compte compte) {
+  public static boolean ban(String accountId) {
+    Compte compte = findById(accountId);
+    if (compte == null) {
+      return false;
+    }
     compte.setActive(false);
-    return;
+    return true;
   }
 
 }
