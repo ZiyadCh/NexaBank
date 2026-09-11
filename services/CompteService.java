@@ -51,6 +51,7 @@ public class CompteService {
       return false;
     }
     compte.setSolde(compte.getSolde() + amount);
+    TransactionService.create("deposit", compte.getAccountId(), null);
     return true;
   }
 
