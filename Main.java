@@ -95,6 +95,7 @@ public class Main {
   }
 
   private static void modifyUserUi() {
+    listClientsUI();
     System.out.println("Id de client pour modifier");
     String clientId = scanner.nextLine();
     Client client = ClientService.findById(clientId);
@@ -148,6 +149,18 @@ public class Main {
       System.out.println("Client ID: " + compte.getClientId());
       System.out.println("Solde: " + compte.getSolde());
       System.out.println("Active:" + compte.isActive());
+      System.out.println("───────────────────────────────");
+    }
+  }
+
+  private static void listClientsUI() {
+    System.out.println("Liste des clients:");
+    System.out.println("───────────────────────────────");
+    for (Client c : ClientService.clients) {
+      System.out.println("ID: " + c.getIdClient());
+      System.out.println("Nom: " + c.getNom());
+      System.out.println("Prenom: " + c.getPrenom());
+      System.out.println("Email: " + c.getEmail());
       System.out.println("───────────────────────────────");
     }
   }

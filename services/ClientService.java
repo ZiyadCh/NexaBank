@@ -23,6 +23,10 @@ public class ClientService {
     return null;
   }
 
+  public static void listClient() {
+
+  }
+
   public static void modify(Client client, String nom, String prenom) {
     client.setNom(nom);
     client.setPrenom(prenom);
