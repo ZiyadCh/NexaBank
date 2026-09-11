@@ -17,6 +17,7 @@ public class WriteService {
       fw.write("Source: " + transaction.getCompteSource() + "\n");
       fw.write("Dest: " + transaction.getCompteDestination() + "\n");
       fw.write("Montant: " + transaction.getAmount() + "\n");
+      fw.close();
     } catch (IOException e) {
       DisplayUtils.error("Error Writing!!!");
     }
