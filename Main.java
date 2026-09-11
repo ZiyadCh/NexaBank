@@ -5,6 +5,7 @@ import models.Banker;
 import models.Compte;
 import models.Person;
 import services.AuthService;
+import services.ClientService;
 import services.CompteService;
 import utils.DisplayUtils;
 import utils.InputUtils;
@@ -78,6 +79,7 @@ public class Main {
           break;
 
         case "3":
+          modifyUserUi();
           break;
 
         case "5":
@@ -90,6 +92,23 @@ public class Main {
           break;
       }
     }
+  }
+
+  private static void modifyUserUi() {
+    System.out.println("Id de client pour modifier");
+    String clientId = scanner.nextLine();
+    Client client = ClientService.findById(clientId);
+    if (client == null) {
+      System.out.println("Client non trouve.");
+      return;
+    }
+    System.out.println("Nouveau nom:");
+    String nom = scanner.nextLine();
+    System.out.println("Nouveau prenom:");
+    String prenom = scanner.nextLine();
+
+    ClientService.modify(client, nom, prenom);
+
   }
 
   private static void banUserUI() {
