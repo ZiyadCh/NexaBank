@@ -6,6 +6,7 @@ import models.Compte;
 import models.Person;
 import services.AuthService;
 import services.CompteService;
+import utils.DisplayUtils;
 
 public class Main {
   public static Scanner scanner = new Scanner(System.in);
@@ -34,9 +35,7 @@ public class Main {
         return;
 
       default:
-        System.out.println("─── ERROR ──────────────────────────");
-        System.out.println("Entrer un nombre correspondant!");
-        System.out.println("─────────────────────────────────────");
+        DisplayUtils.error("Entrer un nombre correspondant!");
         break;
     }
 
@@ -51,9 +50,7 @@ public class Main {
 
     Person user = AuthService.login(email, password);
     if (user == null) {
-      System.out.println("─── ERROR ──────────────────────────");
-      System.out.println("Email ou mot de passe incorrect");
-      System.out.println("─────────────────────────────────────");
+      DisplayUtils.error("Email ou mot de passe incorrect");
     }
     return user;
   }
@@ -88,9 +85,7 @@ public class Main {
           break;
 
         default:
-          System.out.println("─── ERROR ──────────────────────────");
-          System.out.println("Entrer un nombre correspondant!");
-          System.out.println("─────────────────────────────────────");
+          DisplayUtils.error("Entrer un nombre correspondant!");
           break;
       }
     }
@@ -172,9 +167,7 @@ public class Main {
           break;
 
         default:
-          System.out.println("─── ERROR ──────────────────────────");
-          System.out.println("Entrer un nombre correspondant!");
-          System.out.println("─────────────────────────────────────");
+          DisplayUtils.error("Entrer un nombre correspondant!");
           break;
       }
     }
@@ -208,9 +201,7 @@ public class Main {
     System.out.println("Entrer Montant:");
     float amount = readAmount();
     if (amount < 0) {
-      System.err.println("─── ERROR ──────────────────────────");
-      System.err.println("le montant ne peut pas etre negatif!!");
-      System.err.println("─────────────────────────────────────");
+      DisplayUtils.error("le montant ne peut pas etre negatif!!");
       return;
     }
     if (CompteService.deposit(c, amount)) {
@@ -222,9 +213,7 @@ public class Main {
     System.out.println("Entrer Montant:");
     float amount = readAmount();
     if (!CompteService.withdraw(c, amount)) {
-      System.err.println("─── ERROR ──────────────────────────");
-      System.err.println("vous ne posseder pas ce montant!!");
-      System.err.println("─────────────────────────────────────");
+      DisplayUtils.error("vous ne posseder pas ce montant!!");
       return;
     }
     System.out.println("Montant retirer avec succes!");
@@ -237,9 +226,7 @@ public class Main {
     float amount = readAmount();
 
     if (!CompteService.transfer(c, targetId, amount)) {
-      System.err.println("─── ERROR ──────────────────────────");
-      System.err.println("vous ne posseder pas ce montant!!");
-      System.err.println("─────────────────────────────────────");
+      DisplayUtils.error("vous ne posseder pas ce montant!!");
       return;
     }
     System.out.println("Virement effectue avec succes!");
