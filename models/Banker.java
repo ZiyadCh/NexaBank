@@ -1,3 +1,5 @@
+package models;
+
 public class Banker extends Person {
   private String idBanker;
 

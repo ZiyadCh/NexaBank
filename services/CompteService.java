@@ -1,10 +1,14 @@
+package services;
+
 import java.util.HashSet;
 import models.Compte;
 
 public class CompteService {
+  public static HashSet<Compte> comptes = new HashSet<>();
+  public static int aid = 1;
 
   public static Compte findById(String accountId) {
-    for (Compte c : Main.comptes) {
+    for (Compte c : comptes) {
       if (c.getAccountId().equals(accountId)) {
         return c;
       }
@@ -14,7 +18,7 @@ public class CompteService {
 
   public static HashSet<Compte> findByClientId(String clientId) {
     HashSet<Compte> result = new HashSet<>();
-    for (Compte c : Main.comptes) {
+    for (Compte c : comptes) {
       if (c.getClientId().equals(clientId)) {
         result.add(c);
       }
@@ -23,10 +27,10 @@ public class CompteService {
   }
 
   public static boolean create(String clientId) {
-    String accountId = "A" + Main.aid;
+    String accountId = "A" + aid;
     Compte compte = new Compte(clientId, accountId);
-    Main.comptes.add(compte);
-    Main.aid++;
+    comptes.add(compte);
+    aid++;
     return true;
   }
 

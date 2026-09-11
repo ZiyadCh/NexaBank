@@ -1,3 +1,5 @@
+package models;
+
 public class Client extends Person {
   private String idClient;
 
