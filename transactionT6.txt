@@ -1,6 +1,0 @@
-ID: T6
-Type: virement
-Date: 11/09/2026 19:04
-Source: A1002
-Dest: A1001
-Montant: 20.0

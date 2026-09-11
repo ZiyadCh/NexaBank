@@ -11,12 +11,13 @@ public class WriteService {
 
     try {
       FileWriter fw = new FileWriter("transaction" + transaction.getTransactionId() + ".txt");
-      fw.write("ID: " + transaction.getTransactionId() + "\n");
-      fw.write("Type: " + transaction.getType() + "\n");
+      fw.write("───────────────────────────────\n");
       fw.write("Date: " + transaction.getDate() + "\n");
-      fw.write("Source: " + transaction.getCompteSource() + "\n");
-      fw.write("Dest: " + transaction.getCompteDestination() + "\n");
-      fw.write("Montant: " + transaction.getAmount() + "\n");
+      fw.write("Type: " + transaction.getType() + "\n");
+      fw.write("Montant: " + transaction.getAmount() + " DH\n");
+      fw.write("Compte Source: " + transaction.getCompteSource() + "\n");
+      fw.write("Compte Destination: " + transaction.getCompteDestination() + "\n");
+      fw.write("───────────────────────────────\n");
       fw.close();
     } catch (IOException e) {
       DisplayUtils.error("Error Writing!!!");
