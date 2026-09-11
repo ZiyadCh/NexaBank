@@ -8,9 +8,9 @@ public class CompteService {
   public static int aid = 1;
 
   static {
-    comptes.add(new Compte("C1", "1001"));
-    comptes.add(new Compte("C1", "1002"));
-    comptes.add(new Compte("C2", "1003"));
+    comptes.add(new Compte("C1", "A1001"));
+    comptes.add(new Compte("C1", "A1002"));
+    comptes.add(new Compte("C2", "A1003"));
   }
 
   public static Compte findById(String accountId) {

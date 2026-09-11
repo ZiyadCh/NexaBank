@@ -4,9 +4,11 @@ import models.Client;
 import models.Banker;
 import models.Compte;
 import models.Person;
+import models.Transaction;
 import services.AuthService;
 import services.ClientService;
 import services.CompteService;
+import services.TransactionService;
 import utils.DisplayUtils;
 import utils.InputUtils;
 
@@ -80,6 +82,10 @@ public class Main {
 
         case "3":
           modifyUserUi();
+          break;
+
+        case "4":
+          listTransactionsUI();
           break;
 
         case "5":
@@ -162,6 +168,23 @@ public class Main {
       System.out.println("Prenom: " + c.getPrenom());
       System.out.println("Email: " + c.getEmail());
       System.out.println("───────────────────────────────");
+    }
+  }
+
+  private static void listTransactionsUI() {
+    System.out.println("Entrer Numero de compte");
+    String compteSource = scanner.nextLine();
+    System.out.println("Transactions du compte " + compteSource + ":");
+    System.out.println("───────────────────────────────");
+    for (Transaction t : TransactionService.transactions) {
+      if (t.getCompteSource().equals(compteSource)) {
+        System.out.println("ID: " + t.getTransactionId());
+        System.out.println("Type: " + t.getType());
+        System.out.println("Date: " + t.getDate());
+        System.out.println("Compte source: " + t.getCompteSource());
+        System.out.println("Compte destination: " + t.getCompteDestination());
+        System.out.println("───────────────────────────────");
+      }
     }
   }
 
