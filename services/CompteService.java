@@ -7,6 +7,12 @@ public class CompteService {
   public static HashSet<Compte> comptes = new HashSet<>();
   public static int aid = 1;
 
+  static {
+    comptes.add(new Compte("C1", "1001"));
+    comptes.add(new Compte("C1", "1002"));
+    comptes.add(new Compte("C2", "1003"));
+  }
+
   public static Compte findById(String accountId) {
     for (Compte c : comptes) {
       if (c.getAccountId().equals(accountId)) {

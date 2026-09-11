@@ -1,4 +1,3 @@
-import java.util.HashSet;
 import java.util.Scanner;
 
 import models.Client;
@@ -6,24 +5,11 @@ import models.Banker;
 import models.Compte;
 import models.Person;
 import services.AuthService;
-import services.BankerService;
 import services.ClientService;
 import services.CompteService;
 
 public class Main {
   public static Scanner scanner = new Scanner(System.in);
-
-  static {
-    ClientService.clients.add(new Client("Jean", "Dupont", "pass123", "jean", 1));
-    ClientService.clients.add(new Client("Marie", "Curie", "radium", "marie@nexabank.com", 2));
-    ClientService.clients.add(new Client("Pierre", "Martin", "secret", "pierre@nexabank.com", 3));
-    ClientService.clients.add(new Client("Alice", "Durand", "alicepw", "alice@nexabank.com", 4));
-    ClientService.clients.add(new Client("Lucas", "Bernard", "lucas88", "lucas@nexabank.com", 5));
-    BankerService.bankers.add(new Banker("Sophie", "Tremblay", "bankpass", "sophie", 1));
-    CompteService.comptes.add(new Compte("C1", "A1001"));
-    CompteService.comptes.add(new Compte("C1", "A1002"));
-    CompteService.comptes.add(new Compte("C2", "A1003"));
-  }
 
   public static void main(String[] args) {
     System.out.println("┌────────────────────────────────┐");
