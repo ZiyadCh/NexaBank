@@ -68,4 +68,10 @@ public class CompteService {
     target.setSolde(target.getSolde() + amount);
     return true;
   }
+
+  public void ban(Compte compte) {
+    compte.setActive(false);
+    return;
+  }
+
 }
