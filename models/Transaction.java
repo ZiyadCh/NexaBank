@@ -6,15 +6,26 @@ public class Transaction {
   private String transactionId;
   private String type;
   private String date;
+  private float amount;
   private String compteSource;
   private String compteDestination;
 
-  public Transaction(String transactionId, String type, String date, String compteSource, String compteDestination) {
+  public Transaction(String transactionId, String type, String date, String compteSource, String compteDestination,
+      float amount) {
     this.transactionId = transactionId;
     this.type = type;
     this.date = date;
     this.compteSource = compteSource;
     this.compteDestination = compteDestination;
+    this.amount = amount;
+  }
+
+  public float getAmount() {
+    return amount;
+  }
+
+  public void setAmount(float amount) {
+    this.amount = amount;
   }
 
   public String getTransactionId() {

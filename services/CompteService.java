@@ -63,6 +63,7 @@ public class CompteService {
       return false;
     }
     compte.setSolde(compte.getSolde() - amount);
+    TransactionService.create("withdraw", compte.getAccountId(), null);
     return true;
   }
 
@@ -82,6 +83,7 @@ public class CompteService {
     }
     source.setSolde(source.getSolde() - amount);
     target.setSolde(target.getSolde() + amount);
+    TransactionService.create("virement", source.getAccountId(), target.getAccountId());
     return true;
   }
 

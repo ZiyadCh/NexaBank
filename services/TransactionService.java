@@ -17,6 +17,9 @@ public class TransactionService {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
     String newDateTime = date.format(formatter);
     Transaction transaction = new Transaction(transactionId, type, newDateTime, compteSource, compteDestination);
+    System.out.println(transactionId);
+    System.out.println(compteSource);
+    System.out.println(compteDestination);
 
     tid++;
     return true;
