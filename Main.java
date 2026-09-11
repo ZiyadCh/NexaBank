@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import models.Client;
@@ -8,6 +7,7 @@ import models.Person;
 import services.AuthService;
 import services.CompteService;
 import utils.DisplayUtils;
+import utils.InputUtils;
 
 public class Main {
   public static Scanner scanner = new Scanner(System.in);
@@ -200,7 +200,7 @@ public class Main {
 
   private static void depositUI(Compte c) {
     System.out.println("Entrer Montant:");
-    float amount = readAmount();
+    float amount = InputUtils.readAmount(scanner);
     if (amount < 0) {
       DisplayUtils.error("le montant ne peut pas etre negatif!!");
       return;
@@ -212,7 +212,7 @@ public class Main {
 
   private static void withdrawUI(Compte c) {
     System.out.println("Entrer Montant:");
-    float amount = readAmount();
+    float amount = InputUtils.readAmount(scanner);
     if (!CompteService.withdraw(c, amount)) {
       DisplayUtils.error("vous ne posseder pas ce montant!!");
       return;
@@ -224,25 +224,12 @@ public class Main {
     System.out.println("Entrer nombre du compte:");
     String targetId = scanner.nextLine();
     System.out.println("Entrer Montant:");
-    float amount = readAmount();
+    float amount = InputUtils.readAmount(scanner);
 
     if (!CompteService.transfer(c, targetId, amount)) {
       DisplayUtils.error("vous ne posseder pas ce montant!!");
       return;
     }
     System.out.println("Virement effectue avec succes!");
-  }
-
-  private static float readAmount() {
-    while (true) {
-      try {
-        float amount = scanner.nextFloat();
-        scanner.nextLine();
-        return amount;
-      } catch (InputMismatchException e) {
-        scanner.nextLine();
-        DisplayUtils.error("Entrer un nombre!!");
-      }
-    }
   }
 }
